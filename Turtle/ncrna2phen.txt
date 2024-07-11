@@ -1,0 +1,127 @@
+# B-Type Graph: ncrna2phen
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix biolink: <https://w3id.org/biolink/vocab/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix ncrna2phenbg: <http://rdf.biogateway.eu/ncrna2phen/> .
+@prefix bao: <http://www.bioassayontology.org/bao#> .
+@prefix ncrnabg: <http://rdf.biogateway.eu/ncrna/9606/> .
+@prefix omim: <http://purl.bioontology.org/ontology/OMIM/> .
+@prefix ncbi: <https://www.ncbi.nlm.mesh.gov/> .
+@prefix id: <http://identifiers.org/> .
+
+
+skos:definition
+  a owl:AnnotationProperty ;
+  skos:prefLabel "has definition" ;
+  skos:exactMatch biolink:description .
+
+skos:prefLabel
+  a owl:AnnotationProperty ;
+  skos:prefLabel "has name" ;
+  skos:exactMatch <https://w3id.org/linkml/alias> .
+
+rdf:type
+  a owl:ObjectProperty ;
+  skos:prefLabel "is instance of" .
+
+rdfs:subClassOf
+  a owl:ObjectProperty ;
+  skos:prefLabel "is subclass of" ;
+  skos:exactMatch <https://w3id.org/linkml/is_a> .
+
+rdf:subject
+  a owl:ObjectProperty ;
+  skos:prefLabel "subject" ;
+  skos:exactMatch biolink:subject .
+
+rdf:predicate
+  a owl:ObjectProperty ;
+  skos:prefLabel "predicate" ;
+  skos:exactMatch biolink:predicate .
+
+rdf:object
+  a owl:ObjectProperty ;
+  skos:prefLabel "object" ;
+  skos:exactMatch biolink:object .
+
+obo:RO_0002331
+  a owl:ObjectProperty ;
+  skos:prefLabel "involved in" ;
+  skos:closeMatch biolink:genotype_to_disease_association_object .
+
+sio:SIO_000772
+  a owl:ObjectProperty ;
+  skos:prefLabel "has evidence" ;
+  skos:closeMatch biolink:publication_id .
+
+bao:BAO_0000207
+  a owl:ObjectProperty ;
+  skos:prefLabel "has detection method" ;
+  skos:closeMatch biolink:has_evidence .
+
+schema:evidenceOrigin
+  a owl:ObjectProperty ;
+  skos:prefLabel "has evidence origin" ;
+  skos:closeMatch biolink:download_url .
+
+sio:SIO_000253
+  a owl:ObjectProperty ;
+  skos:prefLabel "has source" ;
+  skos:closeMatch biolink:supporting_data_source .
+
+biolink:category
+  a owl:ObjectProperty ;
+  skos:prefLabel "category" .
+
+skos:exactMatch
+  a owl:ObjectProperty ;
+  skos:prefLabel "has exact match" .
+
+rdf:Statement
+  a owl:Class ;
+  skos:prefLabel "Triple" .
+
+obo:NCIT_C15426
+  a owl:Class ;
+  skos:prefLabel "Database" .
+
+obo:DOID_4
+  a owl:Class ;
+  skos:prefLabel "Disease" .
+
+biolink:EntityToDiseaseAssociationMixin
+  a owl:Class ;
+  skos:prefLabel "entity to disease association mixin" .
+
+obo:NCIT_C45335 rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ; 
+   skos:prefLabel "RefSeq" ;
+   biolink:category biolink:InformationResource .
+
+obo:NCIT_C45763 rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ; 
+   skos:prefLabel "Ensembl" ;
+   biolink:category biolink:InformationResource . 
+
+obo:MI_2358 rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ; 
+   skos:prefLabel "miRBase" ;
+   biolink:category biolink:InformationResource .
+
+<http://mircancer.ecu.edu/> rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ; 
+   skos:prefLabel "miRCancer" ;
+   biolink:category biolink:InformationResource . 
+
+<https://lncipedia.org/download> rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ; 
+   skos:prefLabel "LNCipedia" ;
+   biolink:category biolink:InformationResource .
+
+

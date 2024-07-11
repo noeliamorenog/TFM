@@ -1,0 +1,436 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix biolink: <https://w3id.org/biolink/vocab/> .
+@prefix bao: <http://www.bioassayontology.org/bao#> .
+@prefix schema: <http://schema.org/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ncrnagenebg: <http://rdf.biogateway.eu/ncrnagene/9606/> .
+@prefix genebg: <http://rdf.biogateway.eu/gene/9606/> .
+@prefix ncrnabg: <http://rdf.biogateway.eu/ncrna/9606/> .
+@prefix nuccore: <https://www.ncbi.nlm.nih.gov/nuccore/> .
+@prefix assembly: <https://www.ncbi.nlm.nih.gov/assembly/> .
+@prefix pubmed: <https://www.ncbi.nlm.nih.gov/pubmed/> .
+@prefix idpubmed: <http://identifiers.org/pubmed/> .
+@prefix faldo: <http://biohackathon.org/resource/faldo#> .
+
+
+
+# propiedades y clases
+
+skos:definition
+  a owl:AnnotationProperty ;
+  skos:prefLabel "has definition" ;
+  skos:exactMatch biolink:description .
+
+skos:prefLabel
+  a owl:AnnotationProperty ;
+  skos:prefLabel "has name" ;
+  skos:exactMatch <https://w3id.org/linkml/alias> .
+
+skos:altLabel
+   a owl:AnnotationProperty ;
+   skos:prefLabel "has synonym" .
+
+rdf:type
+  a owl:ObjectProperty ;
+  skos:prefLabel "is instance of" .
+
+rdfs:subClassOf
+  a owl:ObjectProperty ;
+  skos:prefLabel "is subclass of" ;
+  skos:exactMatch <https://w3id.org/linkml/is_a> .
+
+schema:evidenceOrigin
+  a owl:ObjectProperty ;
+  skos:prefLabel "has evidence origin" ;
+  skos:closeMatch biolink:download_url .
+
+sio:SIO_000772
+  a owl:ObjectProperty ;
+  skos:prefLabel "has evidence" ;
+  skos:closeMatch biolink:publication_id .
+
+bao:BAO_0000207
+  a owl:ObjectProperty ;
+  skos:prefLabel "has detection method" ;
+  skos:closeMatch biolink:has_evidence .
+
+sio:SIO_000253
+  a owl:ObjectProperty ;
+  skos:prefLabel "has source" ;
+  skos:closeMatch biolink:supporting_data_source .
+
+obo:GENO_0000906
+  a owl:ObjectProperty ;
+   skos:prefLabel "on strand" .
+
+obo:RO_0003302
+   a owl:ObjectProperty ;
+   skos:prefLabel "causes or contributes to" ;
+   skos:exactMatch biolink:causes .
+
+obo:RO_0002162
+   a owl:ObjectProperty ;
+   skos:prefLabel "in taxon" ;
+   skos:exactMatch biolink:in_taxon .
+
+obo:BFO_0000050
+   a owl:ObjectProperty ;
+   skos:prefLabel "part of" ;
+   skos:exactMatch biolink:part_of .
+
+dcterms:hasVersion
+   a owl:ObjectProperty ;
+   skos:prefLabel "has version" .
+
+obo:TXPO_0003500
+  a owl:ObjectProperty ;
+  skos:prefLabel "observed in" ;
+  skos:closeMatch biolink:supporting_study_context .
+
+biolink:category
+  a owl:ObjectProperty ;
+  skos:prefLabel "category" .
+
+sio:SIO_010080 
+  a owl:ObjectProperty ;
+  skos:prefLabel "is transcribed into" ;
+  skos:closeMatch biolink:transcribed_into .
+
+sio:SIO_010081 
+  a owl:ObjectProperty ;
+  skos:prefLabel "is transcribed from" ;
+  skos:closeMatch biolink:transcribed_from .
+
+
+#Clases específicas
+
+obo:SO_0001263 rdf:type owl:Class ;
+               skos:prefLabel "ncRNA gene" .
+
+obo:SO_0000655 rdf:type owl:Class ;
+               skos:prefLabel "ncRNA".
+
+obo:SO_0001505 rdf:type owl:Class ;
+               skos:prefLabel "Reference genome" .
+
+obo:SO_0000340 rdf:type owl:Class ;
+               skos:prefLabel "Chromosome" .
+
+obo:NCIT_C15426 rdf:type owl:Class ;
+                skos:prefLabel "Database" .
+
+obo:SO_0001248 rdf:type owl:Class ;
+                skos:prefLabel "Assembly" .
+
+
+# propiedades localización genómica
+
+obo:GENO_0000894 rdf:type owl:DatatypeProperty ;
+                 skos:prefLabel "start position" ;
+                 skos:closeMatch biolink:start_coordinate .
+
+obo:GENO_0000895 rdf:type owl:DatatypeProperty ;
+                 skos:prefLabel "end position" ;
+                 skos:closeMatch biolink:end_coordinate .
+
+faldo:ForwardStrandPosition rdf:type owl:Class ;
+               skos:prefLabel "Forward Strand Position" .
+
+faldo:ReversePosition rdf:type owl:Class ;
+               skos:prefLabel "Reverse Strand Position" .
+
+# genoma y ensamblado
+
+obo:NCBITaxon_9606 rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0001505 ;
+   skos:prefLabel "9606" ;
+   biolink:category biolink:genome .
+   
+assembly:GCF_000001405 rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0001248 .
+
+# regulación 
+
+obo:MI_2235
+  a owl:ObjectProperty ;
+  skos:prefLabel "up regulates" ;
+  skos:closeMatch biolink:regulates .
+
+obo:MI_2240
+  a owl:ObjectProperty ;
+  skos:prefLabel "down regulates" ;
+  skos:closeMatch biolink:regulates .
+
+# chr
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000001.11> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr1" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000002.12> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr2" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000003.12> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr3" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000004.12> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr4" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000005.10> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr5" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000006.12> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr6" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000007.14> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr7" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000008.11> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr8" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000001.12> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr9" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000010.11> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr10" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000011.10> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr11" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000012.12> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr12" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000013.11> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr13" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000014.9> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr14" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000015.10> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr15" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000016.10> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr16" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000017.11> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr17" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000018.10> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr18" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000019.10> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr19" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000020.11> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr20" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000021.9> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr21" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000022.11> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chr22" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000023.11> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chrX" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_000024.10> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chrY" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+<https://www.ncbi.nlm.nih.gov/nuccore/NC_012920.1> rdf:type owl:Class ;
+   rdfs:subClassOf obo:SO_0000340 ;
+   skos:prefLabel "chrM" ;
+   skos:altLabel "chrMT" ;
+   biolink:category biolink:GenomicSequenceLocalization .
+
+
+# bases de datos
+
+obo:NCIT_C45335 rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ;
+   skos:prefLabel "RefSeq" ;
+   biolink:categoy biolink:InformationResource .
+
+obo:NCIT_C45763 rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ; 
+   skos:prefLabel "Ensembl" ;
+   biolink:category biolink:InformationResource . 
+
+obo:MI_2358 rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ; 
+   skos:prefLabel "miRBase" ;
+   biolink:category biolink:InformationResource .
+
+<http://mircancer.ecu.edu/> rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ; 
+   skos:prefLabel "miRCancer" ;
+   biolink:category biolink:InformationResource . 
+
+<https://lncipedia.org/download> rdf:type owl:Class ;
+   rdfs:subClassOf obo:NCIT_C15426 ; 
+   skos:prefLabel "LNCipedia" ;
+   biolink:category biolink:InformationResource .
+
+
+# jerarquías de ncRNA gene
+   
+obo:SO_0001265 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0002342 ;  
+               skos:prefLabel "miRNA gene" .
+
+obo:SO_0002127 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0001263 ;
+               skos:prefLabel "lncRNA gene" .
+
+obo:SO_0002342 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0001263 ;
+               skos:prefLabel "sncRNA gene" .
+
+obo:SO_0001268 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0002342 ;
+               skos:prefLabel "snRNA gene" .
+
+obo:OGG_0000000032 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0001263 ;
+               skos:prefLabel "miscRNA gene" .
+
+obo:SO_0002363 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0001263 ;
+               skos:prefLabel "Mt_rRNA gene" .
+
+obo:SO_0002181 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0001263 ;
+               skos:prefLabel "ribozyme gene" .
+
+obo:SO_0001637 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0001263 ;
+               skos:prefLabel "rRNA gene" .
+
+obo:SO_0002339 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0001263 ;
+               skos:prefLabel "scaRNA gene" .
+
+obo:SO_0001268 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0001263 ;
+               skos:prefLabel "snRNA gene" .
+
+
+
+# jerarquías de transcritos ncRNA
+
+obo:SO_0000276 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "miRNA" .
+
+obo:SO_0000646 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "siRNA" .
+
+obo:SO_0001877 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ;
+               skos:prefLabel "lncRNA" .
+
+obo:SO_0002247 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ;
+               skos:prefLabel "sncRNA" .
+
+obo:SO_0000274 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "snRNA" .
+
+obo:SO_0002128 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "Mt_rRNA" .
+
+obo:SO_0002129 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "Mt_tRNA" .
+
+obo:SO_0002113 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "retained intron" .
+
+obo:SO_0000374 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "ribozyme" .
+
+obo:SO_0000252 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "rRNA" .
+
+obo:SO_0002095 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "scaRNA" .
+
+obo:SO_0000013 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "scRNA" .
+
+obo:SO_0000275 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "snoRNA" .
+
+obo:SO_0002182 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "sRNA" .
+
+obo:SO_0002139 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "TEC" .
+
+obo:SO_0000404 rdf:type owl:Class ;
+               rdfs:subClassOf obo:SO_0000655 ; 
+               skos:prefLabel "vault RNA" .
+    
