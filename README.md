@@ -1,3 +1,4 @@
-# TFM
+# Trabajo Fin de Máster. Estandarización e Integración Semántica de Datos de RNA no Codificante.
 
-Contiene todo el material utilizado en mi TFM del Máster en Bioinformática.
+Este repositorio contiene todo el material utilizado y generado para la elaboración del TFM. 
+
