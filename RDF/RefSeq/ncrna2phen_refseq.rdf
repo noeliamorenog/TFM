@@ -1,0 +1,108 @@
+@prefix bao: <http://www.bioassayontology.org/bao#> .
+@prefix biolink: <https://w3id.org/biolink/vocab/> .
+@prefix ncrnabg: <http://rdf.biogateway.eu/ncrna/9606/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix omim: <http://purl.bioontology.org/ontology/OMIM/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+schema1:evidenceOrigin a owl:ObjectProperty ;
+    skos:closeMatch biolink:download_url ;
+    skos:prefLabel "has evidence origin" .
+
+sio:SIO_000253 a owl:ObjectProperty ;
+    skos:closeMatch biolink:supporting_data_source ;
+    skos:prefLabel "has source" .
+
+sio:SIO_000772 a owl:ObjectProperty ;
+    skos:closeMatch biolink:publication_id ;
+    skos:prefLabel "has evidence" .
+
+bao:BAO_0000207 a owl:ObjectProperty ;
+    skos:closeMatch biolink:has_evidence ;
+    skos:prefLabel "has detection method" .
+
+rdf:object a owl:ObjectProperty ;
+    skos:exactMatch biolink:object ;
+    skos:prefLabel "object" .
+
+rdf:predicate a owl:ObjectProperty ;
+    skos:exactMatch biolink:predicate ;
+    skos:prefLabel "predicate" .
+
+rdf:subject a owl:ObjectProperty ;
+    skos:exactMatch biolink:subject ;
+    skos:prefLabel "subject" .
+
+rdf:type a owl:ObjectProperty ;
+    skos:prefLabel "is instance of" .
+
+rdfs:subClassOf a owl:ObjectProperty ;
+    skos:exactMatch <https://w3id.org/linkml/is_a> ;
+    skos:prefLabel "is subclass of" .
+
+skos:definition a owl:AnnotationProperty ;
+    skos:exactMatch biolink:description ;
+    skos:prefLabel "has definition" .
+
+skos:exactMatch a owl:ObjectProperty ;
+    skos:prefLabel "has exact match" .
+
+skos:prefLabel a owl:AnnotationProperty ;
+    skos:exactMatch <https://w3id.org/linkml/alias> ;
+    skos:prefLabel "has name" .
+
+biolink:EntityToDiseaseAssociationMixin a owl:Class ;
+    skos:prefLabel "entity to disease association mixin" .
+
+biolink:category a owl:ObjectProperty ;
+    skos:prefLabel "category" .
+
+<ncrna2phenbg:bgw!x--omim!y#refseq> a <ncrna2phenbg:bgw!x--omim!y> ;
+    schema1:evidenceOrigin <ncbi:gene/x> ;
+    sio:SIO_000253 obo:NCIT_C45335 ;
+    sio:SIO_000772 <id:pubmed/x> ;
+    skos:definition "Association between non-coding RNA x and disease OMIM:y according to RefSeq" ;
+    skos:prefLabel "bgw!x--omim!y#refseq" .
+
+obo:DOID_4 a owl:Class ;
+    skos:prefLabel "Disease" .
+
+obo:NCIT_C15426 a owl:Class ;
+    skos:prefLabel "Database" .
+
+obo:NCIT_C45335 a owl:Class ;
+    rdfs:subClassOf obo:NCIT_C15426 ;
+    skos:prefLabel "RefSeq" ;
+    biolink:category biolink:InformationResource .
+
+obo:RO_0002331 a owl:ObjectProperty ;
+    skos:closeMatch biolink:genotype_to_disease_association_object ;
+    skos:prefLabel "involved in" .
+
+ncrnabg:x obo:RO_0002331 omim:y .
+
+rdf:Statement a owl:Class ;
+    skos:prefLabel "Triple" .
+
+<id:pubmed/x> skos:exactMatch <ncbi:pubmed/x> .
+
+<ncbi:pubmed/x> biolink:category biolink:Article .
+
+<ncrna2phenbg:bgw!x--omim!y> a owl:Class ;
+    rdf:object omim:y ;
+    rdf:predicate obo:RO_0002331 ;
+    rdf:subject ncrnabg:x ;
+    rdfs:subClassOf rdf:Statement ;
+    skos:definition "Association between non-coding RNA x and disease OMIM:y" ;
+    skos:prefLabel "bgw!x--omim!y" .
+
+omim:y a owl:Class ;
+    rdfs:subClassOf obo:DOID_4 ;
+    skos:prefLabel "Disease y" ;
+    biolink:category biolink:Disease .
+
