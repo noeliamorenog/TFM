@@ -22,7 +22,7 @@ In this work, a schema has been designed to model the available information on t
 - Employing semantic web tools to ensure standardized information representation.
 - Using the RDFLib library in Python to generate RDF files.
 - Utilizing RDF and SPARQL for effective data modeling and querying.
-- Employing semantic web tools to ensure standardized information representation.
+- Leveraging platforms such as Virtuoso for managing knowledge graphs.
 
 
 ## Directories Description
