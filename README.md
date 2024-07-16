@@ -10,10 +10,12 @@ Although numerous databases are designed to provide information on ncRNAs, a mod
 
 In this work, a schema has been designed to model the available information on these molecules, integrating five datasets. This schema will describe the data of the subsequently created graph. Additionally, to promote interoperability, integration with the knowledge networks BioGateway, using its specific ontologies and annotation resources, and Biolink, adopting its data model to structure and relate the information with other biological data, is sought. Finally, various RDFs are generated and loaded into Virtuoso, enabling queries of greater biological relevance than those allowed by the source databases.
 
-Keywords: Non-Coding RNA (ncRNA), Gene Regulation, Data Integration, Data Semantics, Know-
+**Keywords**: Non-Coding RNA (ncRNA), Gene Regulation, Data Integration, Data Semantics, Know-
 ledge Graphs, Resource Description Framework (RDF), Ontologies.
 
 ## Workflow
+
+![Copia de PASO 1 (1)](https://github.com/user-attachments/assets/67916b99-56f0-4d63-8247-cb062f999719)
 
 
 
