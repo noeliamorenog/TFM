@@ -27,7 +27,7 @@ In this work, a schema has been designed to model the available information on t
 
 ## Directories Description
 
-- [Code](./Code): This folder contains source code files used in the project, developed to standarize the data ([**Rb**](./Code/R)) and to generate the RDF files ([**RDFLib**](./Code/RDFLib)).
+- [Code](./Code): This folder contains source code files used in the project, developed to standarize the data ([**R**](./Code/R)) and to generate the RDF files ([**RDFLib**](./Code/RDFLib)).
 
 - [DB](./DB): This folder contains the datasets of the different databases used in the work: **Ensembl**, **RefSeq**, **LNCipedia**, **miRBase** and **miRCancer**.
 
