@@ -26,6 +26,22 @@ ledge Graphs, Resource Description Framework (RDF), Ontologies.
 - Employing semantic web tools to ensure standardized information representation.
 
 
+## Directories Description
 
+### Code
+
+This folder contains source code files used in the project, developed to standarize the data (**R**) and to generate the RDF files (**RDFLib**).
+
+### DB
+
+This folder contains the datasets of the different databases used in the work: Ensembl, RefSeq, LNCipedia, miRBase and miRCancer.
+
+### RDF
+
+This folder contains the RDF files generated, classified according to the database to which they belong.
+
+### Turtle
+
+This folder contains the Turtle RDF files that define the properties and classes used.
 
 
