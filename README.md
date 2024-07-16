@@ -10,8 +10,7 @@ Although numerous databases are designed to provide information on ncRNAs, a mod
 
 In this work, a schema has been designed to model the available information on these molecules, integrating five datasets. This schema will describe the data of the subsequently created graph. Additionally, to promote interoperability, integration with the knowledge networks BioGateway, using its specific ontologies and annotation resources, and Biolink, adopting its data model to structure and relate the information with other biological data, is sought. Finally, various RDFs are generated and loaded into Virtuoso, enabling queries of greater biological relevance than those allowed by the source databases.
 
-**Keywords**: Non-Coding RNA (ncRNA), Gene Regulation, Data Integration, Data Semantics, Know-
-ledge Graphs, Resource Description Framework (RDF), Ontologies.
+**Keywords**: Non-Coding RNA (ncRNA), Gene Regulation, Data Integration, Data Semantics, Knowledge Graphs, Resource Description Framework (RDF), Ontologies.
 
 ## Workflow
 
@@ -28,7 +27,7 @@ ledge Graphs, Resource Description Framework (RDF), Ontologies.
 
 ## Directories Description
 
-- [Code](./Code): This folder contains source code files used in the project, developed to standarize the data (**R**) and to generate the RDF files (**RDFLib**).
+- [Code](./Code): This folder contains source code files used in the project, developed to standarize the data ([**Rb**](./Code/R)) and to generate the RDF files ([**RDFLib**](./Code/RDFLib)).
 
 - [DB](./DB): This folder contains the datasets of the different databases used in the work: **Ensembl**, **RefSeq**, **LNCipedia**, **miRBase** and **miRCancer**.
 
