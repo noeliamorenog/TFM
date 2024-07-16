@@ -18,6 +18,14 @@ ledge Graphs, Resource Description Framework (RDF), Ontologies.
 ![Copia de PASO 1 (1)](https://github.com/user-attachments/assets/67916b99-56f0-4d63-8247-cb062f999719)
 
 
+## Tools
+
+- Employing semantic web tools to ensure standardized information representation.
+- Using the RDFLib library in Python to generate RDF files.
+- Utilizing RDF and SPARQL for effective data modeling and querying.
+- Employing semantic web tools to ensure standardized information representation.
+
+
 
 
 
