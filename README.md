@@ -28,20 +28,16 @@ ledge Graphs, Resource Description Framework (RDF), Ontologies.
 
 ## Directories Description
 
-### Code
+- [Code](./Code): This folder contains source code files used in the project, developed to standarize the data (**R**) and to generate the RDF files (**RDFLib**).
 
-This folder contains source code files used in the project, developed to standarize the data (**R**) and to generate the RDF files (**RDFLib**).
+- [DB](./DB): This folder contains the datasets of the different databases used in the work: **Ensembl**, **RefSeq**, **LNCipedia**, **miRBase** and **miRCancer**.
 
-### DB
+- [RDF](./RDF): This folder contains the RDF files generated, classified according to the database to which they belong.
 
-This folder contains the datasets of the different databases used in the work: Ensembl, RefSeq, LNCipedia, miRBase and miRCancer.
+- [Turtle](./Turtle): This folder contains the Turtle RDF files that define the properties and classes used.
 
-### RDF
+## Contact
 
-This folder contains the RDF files generated, classified according to the database to which they belong.
-
-### Turtle
-
-This folder contains the Turtle RDF files that define the properties and classes used.
+For questions, collaborations, or suggestions, please contact the project's lead author via [noeliamoreng@gmail.com].
 
 
