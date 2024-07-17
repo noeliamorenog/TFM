@@ -11,11 +11,9 @@ molecules. However, the integration of these data has not kept pace with their d
 effective management and analysis.
 Although there are numerous resources and databases, such as BioGateway, that provide relevant
 information on genetic elements, many lack comprehensive information on ncRNA, which are crucial for
-gene regulation. To address this gap, the aim is to develop a ncRNA knowledge graph that is interopera-
-ble and integrable with BioGateway and other resources, ensuring data standardization and facilitating
+gene regulation. To address this gap, the aim is to develop a ncRNA knowledge graph that is interoperable and integrable with BioGateway and other resources, ensuring data standardization and facilitating
 interoperability across different sources.
-In this work, a schema has been designed to model the available information on these molecules, inte-
-grating five datasets. This schema will describe the data of the subsequently created graph. Additionally,
+In this work, a schema has been designed to model the available information on these molecules, inte grating five datasets. This schema will describe the data of the subsequently created graph. Additionally,
 to promote interoperability, integration with the BioGateway knowledge networks is sought, using their
 specific ontologies and annotation resources, as well as with Biolink, adopting its data model to structure
 and relate information with other biological data. Finally, different RDFs are generated and loaded into
